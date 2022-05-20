@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8826123082641772517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b8c48b98211554ca03c71d06f64bba, type: 3}
+  m_Name: EntityMoveToPositionActionNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 37665f74904079e4d87a3b6a75bf1cbf
+  position: {x: -115.19995, y: 288.8}
+  blackboard:
+    activityComp: {fileID: 0}
+    target: {fileID: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  tolerance: 1
+--- !u!114 &-8754077107127582826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5496e8cd973748a10b3e3ef436ebd, type: 3}
+  m_Name: Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: e37bfc8a2b7af334cafeb1a6108bc586
+  position: {x: -22, y: 4}
+  blackboard:
+    activityComp: {fileID: 0}
+    target: {fileID: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  child: {fileID: -5660333016957678146}
+  restartOnSuccess: 1
+  restartOnFailure: 0
+--- !u!114 &-5660333016957678146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 74a286b60eaf8ea45b9bd84db9ce177b
+  position: {x: -22, y: 118}
+  blackboard:
+    activityComp: {fileID: 0}
+    target: {fileID: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: 6909716705710768626}
+  - {fileID: -8826123082641772517}
+--- !u!114 &-856261594812031956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753f3714fedd3304f80a8d78ac8e2c2b, type: 3}
+  m_Name: RandomWaitActionNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 13015048cd03b4348b583a278e03103d
+  position: {x: 0, y: 0}
+  blackboard:
+    activityComp: {fileID: 0}
+    target: {fileID: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  durationMin: 2
+  durationMax: 4
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: OrcWarrior_KiwiCoderBT
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 4300890025194573056}
+  treeState: 0
+  nodes:
+  - {fileID: 4300890025194573056}
+  - {fileID: -8754077107127582826}
+  - {fileID: -5660333016957678146}
+  - {fileID: -8826123082641772517}
+  - {fileID: 6909716705710768626}
+  - {fileID: -856261594812031956}
+  blackboard:
+    activityComp: {fileID: 0}
+    target: {fileID: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &4300890025194573056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163c147d123e4a945b688eddc64e3ea5, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ca00e6aa7ca72c144ae99d826e0d13e4
+  position: {x: -22, y: -102}
+  blackboard:
+    activityComp: {fileID: 0}
+    target: {fileID: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  child: {fileID: -8754077107127582826}
+--- !u!114 &6909716705710768626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9ea3913ec0ce344b1b9feac7f065fd, type: 3}
+  m_Name: RandomWanderDestinationActionNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: bb50cd5c63a72e349bb1bb8f08b56b5d
+  position: {x: -396.19995, y: 288.80002}
+  blackboard:
+    activityComp: {fileID: 0}
+    target: {fileID: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  randomWanderDistance: 2
