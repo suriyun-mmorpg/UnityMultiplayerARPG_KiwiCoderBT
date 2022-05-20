@@ -4,6 +4,8 @@ namespace MultiplayerARPG.KiwiCoderBT
 {
     public class MonsterMoveToEnemy : MonsterActionNode
     {
+        public ExtraMovementState extraMovementState = ExtraMovementState.None;
+
         protected override void OnStart()
         {
 
@@ -37,7 +39,7 @@ namespace MultiplayerARPG.KiwiCoderBT
             {
                 Vector3 direction = (targetPosition - Entity.MovementTransform.position).normalized;
                 Vector3 position = targetPosition - (direction * (attackDistance - Entity.StoppingDistance));
-                Entity.SetExtraMovementState(ExtraMovementState.None);
+                Entity.SetExtraMovementState(extraMovementState);
                 Entity.PointClickMovement(position);
                 return State.Running;
             }
