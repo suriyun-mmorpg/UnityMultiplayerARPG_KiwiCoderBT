@@ -5,7 +5,7 @@ using TheKiwiCoder;
 
 namespace MultiplayerARPG.KiwiCoderBT
 {
-    public class EntityMoveToPositionActionNode : ActionNode
+    public class EntityMoveToPosition : ActionNode
     {
         public float tolerance = 1.0f;
 

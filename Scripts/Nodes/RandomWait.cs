@@ -5,7 +5,7 @@ using TheKiwiCoder;
 
 namespace MultiplayerARPG.KiwiCoderBT
 {
-    public class RandomWaitActionNode : ActionNode
+    public class RandomWait : ActionNode
     {
         public float durationMin = 2;
         public float durationMax = 4;

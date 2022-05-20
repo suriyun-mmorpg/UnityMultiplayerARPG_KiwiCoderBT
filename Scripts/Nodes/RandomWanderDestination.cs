@@ -5,7 +5,7 @@ using TheKiwiCoder;
 
 namespace MultiplayerARPG.KiwiCoderBT
 {
-    public class RandomWanderDestinationActionNode : ActionNode
+    public class RandomWanderDestination : ActionNode
     {
         public float randomWanderDistance = 2f;
 
