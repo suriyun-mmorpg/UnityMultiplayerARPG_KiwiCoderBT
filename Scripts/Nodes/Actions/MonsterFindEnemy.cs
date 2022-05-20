@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +7,6 @@ namespace MultiplayerARPG.KiwiCoderBT
     {
         [Tooltip("If this is TRUE, monster will attacks buildings")]
         public bool isAttackBuilding = false;
-        [Tooltip("If this is TRUE, monster will attacks targets while its summoner still idle")]
-        public bool isAggressiveWhileSummonerIdle = false;
 
         protected override void OnStart()
         {
@@ -27,22 +24,12 @@ namespace MultiplayerARPG.KiwiCoderBT
             return State.Failure;
         }
 
-        public bool IsAggressiveWhileSummonerIdle()
-        {
-            return (isAggressiveWhileSummonerIdle || Entity.Characteristic == MonsterCharacteristic.Aggressive) && Entity.Characteristic != MonsterCharacteristic.NoHarm;
-        }
-
         /// <summary>
         /// Return `TRUE` if found enemy
         /// </summary>
         /// <returns></returns>
         public bool FindEnemyFunc()
         {
-            // Aggressive monster or summoned monster will find target to attack
-            if (Entity.Characteristic != MonsterCharacteristic.Aggressive &&
-                Entity.Summoner == null)
-                return false;
-
             IDamageableEntity targetEntity;
             if (!Entity.TryGetTargetEntity(out targetEntity) || targetEntity.Entity == Entity.Entity ||
                  targetEntity.IsDead() || !targetEntity.CanReceiveDamageFrom(Entity.GetInfo()))
@@ -61,7 +48,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                     }
                 }
 
-                // If no target enenmy or target enemy is dead, Find nearby character by layer mask
+                // If no target enemy or target enemy is dead, Find nearby character by layer mask
                 blackboard.enemies.Clear();
                 if (Entity.IsSummoned)
                 {
@@ -71,7 +58,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                         CharacterDatabase.SummonedVisualRange,
                         false, /* Don't find an allies */
                         true,  /* Always find an blackboard.enemies */
-                        Entity.IsSummoned && IsAggressiveWhileSummonerIdle() /* Find enemy while summoned and aggresively */));
+                        Entity.IsSummoned));
                 }
                 else
                 {
@@ -79,7 +66,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                         CharacterDatabase.VisualRange,
                         false, /* Don't find an allies */
                         true,  /* Always find an blackboard.enemies */
-                        Entity.IsSummoned && IsAggressiveWhileSummonerIdle() /* Find enemy while summoned and aggresively */));
+                        Entity.IsSummoned));
                 }
 
                 for (int i = blackboard.enemies.Count - 1; i >= 0; --i)
@@ -122,7 +109,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                 }
             }
 
-            return false;
+            return true;
         }
     }
 }
