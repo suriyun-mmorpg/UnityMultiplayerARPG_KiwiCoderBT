@@ -125,7 +125,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d2796383032fee24fa7f478a336fa59e
-  position: {x: 0, y: 0}
+  position: {x: -253.40002, y: 677.6}
   blackboard:
     activityComp: {fileID: 0}
     queueSkill: {fileID: 0}
@@ -278,6 +278,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
+  extraMovementState: 0
 --- !u!114 &4300890025194573056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +334,7 @@ MonoBehaviour:
   - {fileID: -8991476547474194521}
   - {fileID: -1393241509402280636}
   - {fileID: 1635969179115212751}
+  - {fileID: -3076264152462058054}
   - {fileID: 5640257280274793959}
 --- !u!114 &5116620481112575282
 MonoBehaviour:
@@ -377,7 +379,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4e264155810361a45942452570149e5f
-  position: {x: -22.400024, y: 677.80005}
+  position: {x: -60.80005, y: 677.6}
   blackboard:
     activityComp: {fileID: 0}
     queueSkill: {fileID: 0}
