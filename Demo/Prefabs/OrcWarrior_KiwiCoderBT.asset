@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 1
   guid: 8f91134ece645074e9486649fefdc0ff
-  position: {x: -606.4001, y: 677.80005}
+  position: {x: -835.4, y: 677.6}
   blackboard:
     activityComp: {fileID: 0}
     queueSkill: {fileID: 0}
@@ -26,7 +26,6 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   isAttackBuilding: 0
-  isAggressiveWhileSummonerIdle: 1
 --- !u!114 &-8826123082641772517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +68,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 32eaab0b4d591c045bb31db5d5ecf0aa
-  position: {x: -305.59998, y: 357.00003}
+  position: {x: -301.6001, y: 295.19998}
   blackboard:
     activityComp: {fileID: 0}
     queueSkill: {fileID: 0}
@@ -111,6 +110,33 @@ MonoBehaviour:
   - {fileID: -856261594812031956}
   - {fileID: 6909716705710768626}
   - {fileID: -8826123082641772517}
+--- !u!114 &-3076264152462058054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00985b50ac2abfc429b23de4a773d928, type: 3}
+  m_Name: MonsterTurnToEnemy
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d2796383032fee24fa7f478a336fa59e
+  position: {x: 0, y: 0}
+  blackboard:
+    activityComp: {fileID: 0}
+    queueSkill: {fileID: 0}
+    queueSkillLevel: 0
+    isLeftHandAttacking: 0
+    enemies: []
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  turnToEnemySpeed: 800
+  successAngle: 10
 --- !u!114 &-1393241509402280636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +152,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: cc7bc24095007b84493518e73c9e7518
-  position: {x: -426.4001, y: 677.80005}
+  position: {x: -655.4, y: 677.6}
   blackboard:
     activityComp: {fileID: 0}
     queueSkill: {fileID: 0}
@@ -189,6 +215,7 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   children:
+  - {fileID: -6568122903673230305}
   - {fileID: -5660333016957678146}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -218,6 +245,7 @@ MonoBehaviour:
   - {fileID: 1635969179115212751}
   - {fileID: 5116620481112575282}
   - {fileID: -6568122903673230305}
+  - {fileID: -3076264152462058054}
   blackboard:
     activityComp: {fileID: 0}
     queueSkill: {fileID: 0}
@@ -240,7 +268,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d8570d58afc08ca469821b958ddddd37
-  position: {x: -226.40009, y: 677.80005}
+  position: {x: -455.40002, y: 677.6}
   blackboard:
     activityComp: {fileID: 0}
     queueSkill: {fileID: 0}
@@ -359,7 +387,6 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  turnToEnemySpeed: 800
 --- !u!114 &6909716705710768626
 MonoBehaviour:
   m_ObjectHideFlags: 0
