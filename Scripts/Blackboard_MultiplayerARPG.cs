@@ -6,7 +6,7 @@ namespace TheKiwiCoder
 {
     public partial class Blackboard
     {
-        public MonsterActivityComponentBT activityComp;
+        public MonsterActivityComponentKiwiCoderBT activityComp;
         public BaseSkill queueSkill;
         public short queueSkillLevel;
         public bool isLeftHandAttacking;

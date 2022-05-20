@@ -7,7 +7,7 @@ namespace MultiplayerARPG.KiwiCoderBT
 {
     [DefaultExecutionOrder(int.MaxValue)]
     [RequireComponent(typeof(BehaviourTreeRunner))]
-    public class MonsterActivityComponentBT : BaseMonsterActivityComponent
+    public class MonsterActivityComponentKiwiCoderBT : BaseMonsterActivityComponent
     {
         private BehaviourTreeRunner runner;
 
