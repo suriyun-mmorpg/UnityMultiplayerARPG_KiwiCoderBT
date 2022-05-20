@@ -1,14 +1,15 @@
 using MultiplayerARPG;
 using MultiplayerARPG.KiwiCoderBT;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace TheKiwiCoder
 {
     public partial class Blackboard
     {
         public MonsterActivityComponentBT activityComp;
-        public DamageableEntity target;
+        public BaseSkill queueSkill;
+        public short queueSkillLevel;
+        public bool isLeftHandAttacking;
+        public List<BaseCharacterEntity> enemies = new List<BaseCharacterEntity>();
     }
 }

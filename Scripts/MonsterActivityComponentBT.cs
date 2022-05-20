@@ -11,7 +11,7 @@ namespace MultiplayerARPG.KiwiCoderBT
     {
         private BehaviourTreeRunner runner;
 
-        void Start()
+        private void Start()
         {
             runner = GetComponent<BehaviourTreeRunner>();
             runner.tree.blackboard.activityComp = this;
@@ -19,5 +19,14 @@ namespace MultiplayerARPG.KiwiCoderBT
                 runner.enabled = false;
         }
 
+        private void Update()
+        {
+            if (!Entity.IsServer || Entity.Identity.CountSubscribers() == 0 || CharacterDatabase == null)
+            {
+                runner.enabled = false;
+                return;
+            }
+            runner.enabled = true;
+        }
     }
 }
