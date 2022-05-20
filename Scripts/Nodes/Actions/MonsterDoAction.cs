@@ -4,12 +4,11 @@ namespace MultiplayerARPG.KiwiCoderBT
 {
     public class MonsterDoAction : MonsterActionNode
     {
-        [Tooltip("Turn to enemy speed")]
-        public float turnToEnemySpeed = 800f;
+        private bool didAction;
 
         protected override void OnStart()
         {
-
+            didAction = false;
         }
 
         protected override void OnStop()
@@ -18,6 +17,12 @@ namespace MultiplayerARPG.KiwiCoderBT
 
         protected override State OnUpdate()
         {
+            if (didAction && Entity.IsPlayingActionAnimation())
+            {
+                ClearActionState();
+                return State.Success;
+            }
+
             IDamageableEntity tempTargetEnemy;
             if (!Entity.TryGetTargetEntity(out tempTargetEnemy) || Entity.Characteristic == MonsterCharacteristic.NoHarm)
             {
@@ -32,27 +37,6 @@ namespace MultiplayerARPG.KiwiCoderBT
                 Entity.SetTargetEntity(null);
                 ClearActionState();
                 return State.Failure;
-            }
-
-            Vector3 currentPosition = Entity.CacheTransform.position;
-            Vector3 targetPosition = tempTargetEnemy.GetTransform().position;
-            Vector3 lookAtDirection = (targetPosition - currentPosition).normalized;
-            if (lookAtDirection.sqrMagnitude > 0)
-            {
-                if (CurrentGameInstance.DimensionType == DimensionType.Dimension3D)
-                {
-                    Quaternion currentLookAtRotation = Entity.GetLookRotation();
-                    Vector3 lookRotationEuler = Quaternion.LookRotation(lookAtDirection).eulerAngles;
-                    lookRotationEuler.x = 0;
-                    lookRotationEuler.z = 0;
-                    currentLookAtRotation = Quaternion.RotateTowards(currentLookAtRotation, Quaternion.Euler(lookRotationEuler), turnToEnemySpeed * Time.deltaTime);
-                    Entity.SetLookRotation(currentLookAtRotation);
-                }
-                else
-                {
-                    // Update 2D direction
-                    Entity.SetLookRotation(Quaternion.LookRotation(lookAtDirection));
-                }
             }
 
             Entity.AimPosition = Entity.GetAttackAimPosition(ref blackboard.isLeftHandAttacking);
@@ -74,8 +58,8 @@ namespace MultiplayerARPG.KiwiCoderBT
                 Entity.Attack(false);
             }
 
-            ClearActionState();
-            return State.Success;
+            didAction = true;
+            return State.Running;
         }
     }
 }
