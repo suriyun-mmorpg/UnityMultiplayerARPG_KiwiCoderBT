@@ -36,7 +36,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                 return State.Failure;
             }
 
-            Vector3 currentPosition = Entity.CacheTransform.position;
+            Vector3 currentPosition = Entity.EntityTransform.position;
             Vector3 targetPosition = tempTargetEnemy.GetTransform().position;
             Vector3 lookAtDirection = (targetPosition - currentPosition).normalized;
             if (lookAtDirection.sqrMagnitude > 0)

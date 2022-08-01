@@ -54,7 +54,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                 {
                     // Find enemy around summoner
                     blackboard.enemies.AddRange(Entity.FindAliveCharacters<BaseCharacterEntity>(
-                        Entity.Summoner.CacheTransform.position,
+                        Entity.Summoner.EntityTransform.position,
                         CharacterDatabase.SummonedVisualRange,
                         false, /* Don't find an allies */
                         true,  /* Always find an blackboard.enemies */

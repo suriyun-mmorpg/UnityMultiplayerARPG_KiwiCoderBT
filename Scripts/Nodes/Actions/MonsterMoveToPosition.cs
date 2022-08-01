@@ -20,7 +20,7 @@ namespace MultiplayerARPG.KiwiCoderBT
 
         protected override State OnUpdate()
         {
-            if (Vector3.Distance(Entity.CacheTransform.position, blackboard.moveToPosition) < tolerance)
+            if (Vector3.Distance(Entity.EntityTransform.position, blackboard.moveToPosition) < tolerance)
             {
                 return State.Success;
             }
