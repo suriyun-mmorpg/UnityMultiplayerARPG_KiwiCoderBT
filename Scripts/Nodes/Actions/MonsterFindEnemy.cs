@@ -50,23 +50,23 @@ namespace MultiplayerARPG.KiwiCoderBT
 
                 // If no target enemy or target enemy is dead, Find nearby character by layer mask
                 blackboard.enemies.Clear();
-                if (Entity.IsSummoned)
+                if (Entity.IsSummonedAndSummonerExisted)
                 {
                     // Find enemy around summoner
                     blackboard.enemies.AddRange(Entity.FindAliveCharacters<BaseCharacterEntity>(
                         Entity.Summoner.EntityTransform.position,
                         CharacterDatabase.SummonedVisualRange,
                         false, /* Don't find an allies */
-                        true,  /* Always find an blackboard.enemies */
-                        Entity.IsSummoned));
+                        true,  /* Always find an enemies */
+                        true));
                 }
                 else
                 {
                     blackboard.enemies.AddRange(Entity.FindAliveCharacters<BaseCharacterEntity>(
                         CharacterDatabase.VisualRange,
                         false, /* Don't find an allies */
-                        true,  /* Always find an blackboard.enemies */
-                        Entity.IsSummoned));
+                        true,  /* Always find an enemies */
+                        false  /* Don't find an neutral */));
                 }
 
                 for (int i = blackboard.enemies.Count - 1; i >= 0; --i)
