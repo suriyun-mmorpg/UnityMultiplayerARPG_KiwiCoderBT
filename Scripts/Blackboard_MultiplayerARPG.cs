@@ -8,7 +8,7 @@ namespace TheKiwiCoder
     {
         public MonsterActivityComponentKiwiCoderBT activityComp;
         public BaseSkill queueSkill;
-        public short queueSkillLevel;
+        public int queueSkillLevel;
         public bool isLeftHandAttacking;
         public List<BaseCharacterEntity> enemies = new List<BaseCharacterEntity>();
     }
