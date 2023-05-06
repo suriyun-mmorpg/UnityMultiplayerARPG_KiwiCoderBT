@@ -10,6 +10,6 @@ namespace TheKiwiCoder
         public BaseSkill queueSkill;
         public int queueSkillLevel;
         public bool isLeftHandAttacking;
-        public List<BaseCharacterEntity> enemies = new List<BaseCharacterEntity>();
+        public List<DamageableEntity> enemies = new List<DamageableEntity>();
     }
 }
