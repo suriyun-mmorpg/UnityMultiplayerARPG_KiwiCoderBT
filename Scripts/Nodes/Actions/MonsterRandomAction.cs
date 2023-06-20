@@ -36,7 +36,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                 if (CharacterDatabase.RandomSkill(Entity, out blackboard.queueSkill, out blackboard.queueSkillLevel) && blackboard.queueSkill != null)
                 {
                     // Cooling down
-                    if (Entity.IndexOfSkillUsage(blackboard.queueSkill.DataId, SkillUsageType.Skill) >= 0)
+                    if (Entity.IndexOfSkillUsage(SkillUsageType.Skill, blackboard.queueSkill.DataId) >= 0)
                     {
                         blackboard.queueSkill = null;
                         blackboard.queueSkillLevel = 0;

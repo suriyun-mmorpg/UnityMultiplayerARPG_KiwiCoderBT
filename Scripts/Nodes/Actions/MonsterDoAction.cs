@@ -43,7 +43,7 @@ namespace MultiplayerARPG.KiwiCoderBT
             if (Entity.IsPlayingActionAnimation())
                 return State.Running;
 
-            if (blackboard.queueSkill != null && Entity.IndexOfSkillUsage(blackboard.queueSkill.DataId, SkillUsageType.Skill) < 0)
+            if (blackboard.queueSkill != null && Entity.IndexOfSkillUsage(SkillUsageType.Skill, blackboard.queueSkill.DataId) < 0)
             {
                 // Use skill when there is queue skill or randomed skill that can be used
                 Entity.UseSkill(blackboard.queueSkill.DataId, false, 0, new AimPosition()
