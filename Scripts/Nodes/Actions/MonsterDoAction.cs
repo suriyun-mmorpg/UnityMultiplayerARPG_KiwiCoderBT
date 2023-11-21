@@ -49,7 +49,7 @@ namespace MultiplayerARPG.KiwiCoderBT
                 Entity.UseSkill(blackboard.queueSkill.DataId, false, 0, new AimPosition()
                 {
                     type = AimPositionType.Position,
-                    position = tempTargetEnemy.OpponentAimTransform.position,
+                    position = blackboard.queueSkill.GetDefaultAttackAimPosition(Entity, blackboard.queueSkillLevel, blackboard.isLeftHandAttacking, tempTargetEnemy),
                 });
             }
             else
