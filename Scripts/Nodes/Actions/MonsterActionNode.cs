@@ -17,14 +17,16 @@ namespace MultiplayerARPG.KiwiCoderBT
 
         protected Transform GetDamageTransform()
         {
-            return blackboard.queueSkill != null ? blackboard.queueSkill.GetApplyTransform(Entity, blackboard.isLeftHandAttacking) :
-                Entity.GetWeaponDamageInfo(null).GetDamageTransform(Entity, blackboard.isLeftHandAttacking);
+            bool isLeftHand = blackboard.isLeftHandAttacking;
+            return blackboard.queueSkill != null ? blackboard.queueSkill.GetApplyTransform(Entity, isLeftHand) :
+                Entity.GetAvailableWeaponDamageInfo(ref isLeftHand).GetDamageTransform(Entity, isLeftHand);
         }
 
         protected float GetAttackDistance()
         {
-            return blackboard.queueSkill != null && blackboard.queueSkill.IsAttack ? blackboard.queueSkill.GetCastDistance(Entity, blackboard.queueSkillLevel, blackboard.isLeftHandAttacking) :
-                Entity.GetAttackDistance(blackboard.isLeftHandAttacking);
+            bool isLeftHand = blackboard.isLeftHandAttacking;
+            return blackboard.queueSkill != null && blackboard.queueSkill.IsAttack ? blackboard.queueSkill.GetCastDistance(Entity, blackboard.queueSkillLevel, isLeftHand) :
+                Entity.GetAttackDistance(isLeftHand);
         }
 
         protected bool OverlappedEntity<T>(T entity, Vector3 measuringPosition, Vector3 targetPosition, float distance)
