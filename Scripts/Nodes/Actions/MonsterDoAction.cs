@@ -46,7 +46,7 @@ namespace MultiplayerARPG.KiwiCoderBT
             if (blackboard.queueSkill != null && Entity.IndexOfSkillUsage(SkillUsageType.Skill, blackboard.queueSkill.DataId) < 0)
             {
                 // Use skill when there is queue skill or randomed skill that can be used
-                Entity.UseSkill(blackboard.queueSkill.DataId, false, 0, new AimPosition()
+                Entity.UseSkill(blackboard.queueSkill.DataId, WeaponHandlingState.None, 0, new AimPosition()
                 {
                     type = AimPositionType.Position,
                     position = blackboard.queueSkill.GetDefaultAttackAimPosition(Entity, blackboard.queueSkillLevel, blackboard.isLeftHandAttacking, tempTargetEnemy),
@@ -55,8 +55,8 @@ namespace MultiplayerARPG.KiwiCoderBT
             else
             {
                 // Attack when no queue skill
-                bool isLeftHand = false;
-                Entity.Attack(ref isLeftHand);
+                WeaponHandlingState weaponHandlingState = WeaponHandlingState.None;
+                Entity.Attack(ref weaponHandlingState);
             }
 
             didAction = true;
